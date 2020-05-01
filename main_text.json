@@ -1,0 +1,69 @@
+{
+  "start": {
+    "text": "ijufgnbiurtbn. Выберите язык /en /ru /kz"
+   },
+  "ru": {
+    "region": {
+      "text": "Выберите регион"
+    },
+    "city": {
+      "text": "Выберите город"
+    },
+    "street": {
+      "text": "Введите улицу"
+    },
+    "building": {
+      "text": "Введите номер здания(без дроби)"
+    },
+    "slash":{
+      "text": "'Введите дробь здания если она есть, если нет нажмите \"Далее\" регион"
+    },
+    "apartment": {
+      "text": "Введите номер квартиры"
+    },
+    "offer": {
+      "text": "Видеонаблюдение для подъездов - 350 тг. в месяц\nЦена указана с учетом НДС\n\nВидеокамеры устанавливаются в крупных жилых домах многоквартирного сектора 14 областных центров и гг. Алматы, Астана при наличии технической возможности подключения сети GPON АО «Казахтелеком» в подъезде",
+      "buttons": ["Купить", "У меня уже есть"]
+    }
+  },
+  "kz": {
+    "region": {
+      "text": "Аймақты таңданыз"
+    },
+    "city": {
+      "text": "Қаланы таңданыз"
+    },
+    "street": {
+      "text": "Көшені жазыныз"
+    },
+    "building": {
+      "text": "Ғимараттың нөмерін еңгізініз(бөлшексіз)"
+    },
+    "slash":{
+      "text": "'Ғимараттың бөлшегін жазыныз, егер болмаса \"Келесі\"-ні басыныз"
+    },
+    "apartment": {
+      "text": "Пәтердің нөмерің еңгізініз"
+    }
+  },
+  "en":{
+    "region": {
+      "text": "Choose the region"
+    },
+    "city": {
+      "text": "Choose the city"
+    },
+    "street": {
+      "text": "Enter the street"
+    },
+    "building": {
+      "text": "Enter the number of building(without fraction)"
+    },
+    "slash":{
+      "text": "'Enter the fraction of the building, if it doesn't have it click \"Next\""
+    },
+    "apartment": {
+      "text": "Enter number of apartment"
+    }
+  }
+}
