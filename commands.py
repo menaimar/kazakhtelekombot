@@ -25,7 +25,7 @@ class Commands:
         current_state, lang = self.cache[chat_id]["state"], self.cache[chat_id]["lang"]
         default_response = ""
         response_function = ""
-        if current_state in self.text[lang]:
+        if current_state in list(self.text[lang].keys()) + ["start"]:
             default_response = self.text["start"] if current_state == "start" else self.text[lang][current_state]
             response_function = await self.default(message)
         else:
@@ -49,30 +49,32 @@ class Commands:
             self.cache[chat_id]["address"][current_state] = text
         self.next_state(chat_id)
 
-    def next_state(self, chat_id):
+    def next_state(self, chat_id, i=0):
         current_state = self.cache[chat_id]["state"]
-        self.cache[chat_id]["state"] = self.tree[current_state][0]
+        self.cache[chat_id]["state"] = self.tree[current_state][i]
 
     # Необычные респонсы
     async def check_availability(self, message: types.Message = None):
         chat_id = message.chat.id
         current_state = self.cache[chat_id]["state"]
         ktreq = self.cache[chat_id]["address"]
-        await message.reply("Проверяем адресс...")
+        await message.answer("Проверяем адресс...")
         check = ktcheck(ktreq)
         if check:
             response = "Ваш адрес доступен к подключению"
         else:
             response = "Увы.."
+
         self.cache[chat_id]["state"] = self.tree[current_state][check]
-        return {"text": response}
+        await message.answer(response)
+        return await self.exec(message)
 
     async def asking(self, message: types.Message = None):
         chat_id = message.chat.id
         current_state = self.cache[chat_id]["state"]
         check = message.text == "Купить"
         if check:
-            buy()
+            self.buy()
         self.cache[chat_id]["state"] = self.tree[current_state][check]
     # ------------------------
 
@@ -95,3 +97,6 @@ class Commands:
             return get_cities(address["region"])
         elif current_state == "street":
             return get_streets(address["region"], address["city"])
+
+    def buy(self):
+        pass
